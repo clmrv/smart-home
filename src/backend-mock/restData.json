@@ -1,0 +1,78 @@
+{
+  "devices": [
+    {
+      "type": "bulb",
+      "id": "1",
+      "name": "Livingroom light",
+      "connectionState": "connected"
+    },
+    {
+      "type": "bulb",
+      "id": "2",
+      "name": "Bedroom light",
+      "connectionState": "connected"
+    },
+    {
+      "type": "outlet",
+      "id": "3",
+      "name": "PC",
+      "connectionState": "connected"
+    },
+    {
+      "type": "outlet",
+      "id": "4",
+      "name": "TV",
+      "connectionState": "poorConnection"
+    },
+    {
+      "type": "temperatureSensor",
+      "id": "5",
+      "name": "Thermometer",
+      "connectionState": "connected"
+    }
+  ],
+
+  "devicesInfo": [
+    {
+      "type": "bulb",
+      "id": "1",
+      "name": "Livingroom light",
+      "connectionState": "connected",
+      "isTurnedOn": true,
+      "brightness": 50,
+      "color": "white"
+    },
+    {
+      "type": "bulb",
+      "id": "2",
+      "name": "Bedroom light",
+      "connectionState": "connected",
+      "isTurnedOn": false,
+      "brightness": 50,
+      "color": "white"
+    },
+    {
+      "type": "outlet",
+      "id": "3",
+      "name": "PC",
+      "connectionState": "connected",
+      "isTurnedOn": true,
+      "powerConsumption": 230
+    },
+    {
+      "type": "outlet",
+      "id": "4",
+      "name": "TV",
+      "connectionState": "poorConnection",
+      "isTurnedOn": false,
+      "powerConsumption": 0
+    },
+    {
+      "type": "temperatureSensor",
+      "id": "5",
+      "name": "Thermometer",
+      "connectionState": "connected",
+      "temperature": 20
+    }
+  ]
+}

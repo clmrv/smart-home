@@ -1,0 +1,4 @@
+{
+  "/api/v1/devices": "/devices",
+  "/api/v1/devices/:id": "/devicesInfo/:id"
+}
