@@ -2,14 +2,13 @@ import React from "react";
 import { SmartBulb } from "../../model";
 import { Styled2ColGrid, StyledColorBox, StyledInfoLabel } from "./styled";
 
-interface Props {
-  device: SmartBulb;
-}
-
 const status = {
   on: "ON",
   off: "OFF",
 };
+interface Props {
+  device: SmartBulb;
+}
 
 const BulbDetails: React.FC<Props> = ({ device }) => {
   return (

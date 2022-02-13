@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import styled from "@emotion/styled";
 import DeviceDetails from "./components/DeviceDetails";
 import DeviceList from "./components/DeviceList";
 import { SmartDeviceDetails } from "./model";
-import { API, COLORS } from "./constants";
+import { COLORS, WEBSOCKET_API } from "./constants";
+import { initialState, reducer } from "./store";
+import { fetchDeviceDetails, fetchDevices } from "./helpers";
 
 const StyledContainer = styled.div`
   background: linear-gradient(
@@ -12,28 +14,39 @@ const StyledContainer = styled.div`
     ${COLORS.PURPLE2}
   );
   min-height: 100vh;
-  padding: 0 0.85rem;
+  padding: 0 0.85rem 0.85rem 0.85rem;
 `;
 
 const App: React.FC = () => {
-  const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
-  const [selectedDevice, setSelectedDevice] =
-    useState<SmartDeviceDetails | null>(null);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  const handleItemSelection = async (id: string) => {
-    const res = await fetch(`${API}/api/v1/devices/${id}`);
-    const data: SmartDeviceDetails = await res.json();
-    setSelectedDevice(data);
-    setIsDetailsModalOpen(true);
+  const handleDeviceRefresh = ({ data }: { data: string }) => {
+    const refreshedDevice: SmartDeviceDetails = JSON.parse(data);
+    dispatch({ type: "refreshedDevice", device: refreshedDevice });
   };
+
+  useEffect(() => {
+    fetchDevices((data) => dispatch({ type: "loadedDevices", devices: data }));
+
+    const socket = new WebSocket(`${WEBSOCKET_API}/api/v1/refresh`);
+    socket.addEventListener("message", handleDeviceRefresh);
+  }, []);
+
+  const handleItemSelection = (id: string) =>
+    fetchDeviceDetails(id, (data) =>
+      dispatch({ type: "selectedDevice", device: data })
+    );
 
   return (
     <StyledContainer>
-      <DeviceList onItemSelection={handleItemSelection} />
+      <DeviceList
+        devices={state.devices}
+        onItemSelection={handleItemSelection}
+      />
       <DeviceDetails
-        onClose={() => setIsDetailsModalOpen(false)}
-        open={isDetailsModalOpen}
-        device={selectedDevice}
+        onClose={() => dispatch({ type: "closedModal" })}
+        open={state.isModalOpen}
+        device={state.selectedDevice}
       />
     </StyledContainer>
   );

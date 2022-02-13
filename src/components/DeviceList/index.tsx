@@ -1,22 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { DeviceItem } from "../DeviceItem";
 import { SmartDevice } from "../../model";
-import { API } from "../../constants";
 import { StyledContainer, StyledDeviceList, StyledHeader } from "./styled";
 
 interface Props {
+  devices: SmartDevice[];
   onItemSelection: (id: string) => void;
 }
 
-const DeviceList: React.FC<Props> = ({ onItemSelection }) => {
-  const [devices, setDevices] = useState<SmartDevice[]>([]);
-
-  useEffect(() => {
-    fetch(`${API}/api/v1/devices`)
-      .then((res) => res.json())
-      .then((data: SmartDevice[]) => setDevices(data));
-  }, []);
-
+const DeviceList: React.FC<Props> = ({ onItemSelection, devices }) => {
   return (
     <StyledContainer>
       <StyledHeader>My devices</StyledHeader>

@@ -18,7 +18,7 @@ const ConnectionState: React.FC<Props> = ({ state, ...props }) => {
       return <ConnectedIcon color={COLORS.GREEN} {...props} />;
 
     case "poorConnection":
-      return <PoorConnectionIcon color={COLORS.YELLOW} {...props} />;
+      return <PoorConnectionIcon color={COLORS.ORANGE} {...props} />;
 
     case "disconnected":
       return <DisconnectedIcon color={COLORS.RED} {...props} />;

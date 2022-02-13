@@ -33,7 +33,7 @@
     {
       "type": "temperatureSensor",
       "id": "6",
-      "name": "Garage thermometer",
+      "name": "Garage thermometer with very long name",
       "connectionState": "disconnected"
     }
   ],

@@ -1,4 +1,5 @@
 export const API = "http://localhost:3001";
+export const WEBSOCKET_API = "ws://localhost:3002";
 
 export const BREAKPOINTS = {
   tablet: "@media screen and (min-width: 375px)",
@@ -11,7 +12,7 @@ export const COLORS = {
   PURPLE2: "#C668FF",
   GREEN: "green",
   RED: "red",
-  YELLOW: "DarkGoldenRod",
+  ORANGE: "#D2691E",
   LIGHTGRAY: "#A0A0A0",
 };
 
