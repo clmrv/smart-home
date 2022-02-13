@@ -1,11 +1,15 @@
 # SmartHome
 
-## Debug
+You can configure backend api url in `src/constants.js`.
+
+**Mock API disclaimer**: Backend mock is only for development purposes and it does not provide correct data sets. There might be wrong data in device details modal (up to refresh), because REST server doesnt know about changes from WebSocket server.
+
+## Development build
 
 #### Packages setup
 `npm install`
 
-#### Rest API mock setup
+#### REST API mock setup
 
 `npx json-server --watch src/backend-mock/restData.json --routes src/backend-mock/routes.json`
 
