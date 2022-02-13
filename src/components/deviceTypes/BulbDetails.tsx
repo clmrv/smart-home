@@ -1,5 +1,6 @@
 import React from "react";
 import { SmartBulb } from "../../model";
+import { Lightbulb } from "react-bootstrap-icons";
 
 interface Props {
   device: SmartBulb;
@@ -8,6 +9,8 @@ interface Props {
 const BulbDetails: React.FC<Props> = ({ device }) => {
   return (
     <>
+      <Lightbulb />
+      <div>{device.isTurnedOn}</div>
       <div>{device.color}</div>
       <div>{device.brightness}</div>
     </>

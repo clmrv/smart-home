@@ -1,6 +1,11 @@
 import React from "react";
 import { SmartDevice } from "../../model";
-
+import {
+  StyledConnectionState,
+  StyledContainer,
+  StyledDeviceIcon,
+  StyledDeviceName,
+} from "./styled";
 interface Props {
   item: SmartDevice;
   onClick: () => void;
@@ -8,8 +13,10 @@ interface Props {
 
 export const DeviceItem: React.FC<Props> = ({ item, onClick }) => {
   return (
-    <button
-      onClick={onClick}
-    >{`${item.name} ${item.type} ${item.id} ${item.connectionState}`}</button>
+    <StyledContainer onClick={onClick}>
+      <StyledDeviceIcon type={item.type} />
+      <StyledDeviceName>{item.name}</StyledDeviceName>
+      <StyledConnectionState state={item.connectionState} />
+    </StyledContainer>
   );
 };

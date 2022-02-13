@@ -12,12 +12,12 @@ const DeviceDetailsFactory: React.FC<Props> = ({ device }) => {
   switch (device.type) {
     case "bulb":
       return <BulbDetails device={device} />;
+
     case "outlet":
       return <OutletDetails device={device} />;
+
     case "temperatureSensor":
       return <TemperatureSensorDetails device={device} />;
-    default:
-      return null;
   }
 };
 

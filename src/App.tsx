@@ -3,11 +3,16 @@ import styled from "@emotion/styled";
 import DeviceDetails from "./components/DeviceDetails";
 import DeviceList from "./components/DeviceList";
 import { SmartDeviceDetails } from "./model";
+import { API, COLORS } from "./constants";
 
 const StyledContainer = styled.div`
-  width: 100vw;
-  background-color: gray;
-  height: 100vh;
+  background: linear-gradient(
+    to bottom right,
+    ${COLORS.PURPLE},
+    ${COLORS.PURPLE2}
+  );
+  min-height: 100vh;
+  padding: 0 0.85rem;
 `;
 
 const App: React.FC = () => {
@@ -16,7 +21,7 @@ const App: React.FC = () => {
     useState<SmartDeviceDetails | null>(null);
 
   const handleItemSelection = async (id: string) => {
-    const res = await fetch(`http://localhost:3001/api/v1/devices/${id}`);
+    const res = await fetch(`${API}/api/v1/devices/${id}`);
     const data: SmartDeviceDetails = await res.json();
     setSelectedDevice(data);
     setIsDetailsModalOpen(true);

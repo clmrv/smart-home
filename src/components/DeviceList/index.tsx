@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { DeviceItem } from "../DeviceItem";
 import { SmartDevice } from "../../model";
+import { API } from "../../constants";
+import { StyledContainer, StyledDeviceList, StyledHeader } from "./styled";
 
 interface Props {
   onItemSelection: (id: string) => void;
@@ -10,15 +12,15 @@ const DeviceList: React.FC<Props> = ({ onItemSelection }) => {
   const [devices, setDevices] = useState<SmartDevice[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/v1/devices")
+    fetch(`${API}/api/v1/devices`)
       .then((res) => res.json())
       .then((data: SmartDevice[]) => setDevices(data));
   }, []);
 
   return (
-    <div>
-      <p>My devices</p>
-      <div>
+    <StyledContainer>
+      <StyledHeader>My devices</StyledHeader>
+      <StyledDeviceList>
         {devices.map((dev, index) => (
           <DeviceItem
             key={index}
@@ -26,8 +28,8 @@ const DeviceList: React.FC<Props> = ({ onItemSelection }) => {
             onClick={() => onItemSelection(dev.id)}
           />
         ))}
-      </div>
-    </div>
+      </StyledDeviceList>
+    </StyledContainer>
   );
 };
 

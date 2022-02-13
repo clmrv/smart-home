@@ -1,8 +1,15 @@
+export type Connection = "connected" | "disconnected" | "poorConnection";
+export type DeviceType = "bulb" | "outlet" | "temperatureSensor";
+export type SmartDeviceDetails =
+  | SmartBulb
+  | SmartOutlet
+  | SmartTemperatureSensor;
+
 export interface SmartDevice {
-  type: string; // 'bulb', 'outlet' or 'temperatureSensor';
+  type: DeviceType;
   id: string;
   name: string;
-  connectionState: string; // 'connected', 'disconnected' or 'poorConnection'
+  connectionState: Connection;
 }
 
 export interface SmartBulb extends SmartDevice {
@@ -22,9 +29,3 @@ export interface SmartTemperatureSensor extends SmartDevice {
   type: "temperatureSensor";
   temperature: number; // in Celsius
 }
-
-// SmartDeviceDetails can be SmartBulb, SmartOutlet or SmartTemperatureSensor
-export type SmartDeviceDetails =
-  | SmartBulb
-  | SmartOutlet
-  | SmartTemperatureSensor;

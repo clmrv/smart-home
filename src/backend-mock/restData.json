@@ -27,8 +27,14 @@
     {
       "type": "temperatureSensor",
       "id": "5",
-      "name": "Thermometer",
+      "name": "Kitchen thermometer",
       "connectionState": "connected"
+    },
+    {
+      "type": "temperatureSensor",
+      "id": "6",
+      "name": "Garage thermometer",
+      "connectionState": "disconnected"
     }
   ],
 
@@ -70,9 +76,16 @@
     {
       "type": "temperatureSensor",
       "id": "5",
-      "name": "Thermometer",
+      "name": "Kitchen thermometer",
       "connectionState": "connected",
       "temperature": 20
+    },
+    {
+      "type": "temperatureSensor",
+      "id": "6",
+      "name": "Garage thermometer",
+      "connectionState": "disconnected",
+      "temperature": 0
     }
   ]
 }
