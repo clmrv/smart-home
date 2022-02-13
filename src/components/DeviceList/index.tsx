@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { DeviceItem } from "../DeviceItem";
-import { SmartDevice, SmartDeviceDetails } from "../../model";
+import { SmartDevice } from "../../model";
 
 interface Props {
   onItemSelection: (id: string) => void;
 }
 
 const DeviceList: React.FC<Props> = ({ onItemSelection }) => {
-  const [devices, setDevices] = useState<[SmartDevice] | []>([]);
-  const [selectedDevice, setSelectedDevice] =
-    useState<SmartDeviceDetails | null>(null);
+  const [devices, setDevices] = useState<SmartDevice[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:3001/api/v1/devices")
       .then((res) => res.json())
-      .then((data: [SmartDevice] | []) => setDevices(data));
+      .then((data: SmartDevice[]) => setDevices(data));
   }, []);
 
   return (
