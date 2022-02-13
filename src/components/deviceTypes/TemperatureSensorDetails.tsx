@@ -1,5 +1,6 @@
 import React from "react";
 import { SmartTemperatureSensor } from "../../model";
+import { Styled2ColGrid, StyledInfoLabel } from "./styled";
 
 interface Props {
   device: SmartTemperatureSensor;
@@ -7,9 +8,10 @@ interface Props {
 
 const TemperatureSensorDetails: React.FC<Props> = ({ device }) => {
   return (
-    <>
-      <div>{device.temperature}</div>
-    </>
+    <Styled2ColGrid>
+      <StyledInfoLabel>temperature</StyledInfoLabel>
+      <div>{`${device.temperature}°C`}</div>
+    </Styled2ColGrid>
   );
 };
 

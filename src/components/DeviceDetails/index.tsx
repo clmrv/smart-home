@@ -26,6 +26,8 @@ const DeviceDetails: React.FC<Props> = ({ open, onClose, device }) => {
     setupInteract(draggableClass);
   }, []);
 
+  const isDeviceConnected = device && device.connectionState != "disconnected";
+
   return (
     <StyledContainer style={{ display: open ? "flex" : "none" }}>
       <StyledModal className={draggableClass}>
@@ -40,7 +42,7 @@ const DeviceDetails: React.FC<Props> = ({ open, onClose, device }) => {
         </IconsWrapper>
         <StyledIdText>{`ID: ${device?.id}`}</StyledIdText>
         <StyledDeviceName>{device?.name}</StyledDeviceName>
-        {device && <DeviceDetailsFactory device={device} />}
+        {isDeviceConnected && <DeviceDetailsFactory device={device} />}
       </StyledModal>
     </StyledContainer>
   );

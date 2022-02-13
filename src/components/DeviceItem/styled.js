@@ -34,7 +34,7 @@ export const StyledConnectionState = styled(ConnectionState)`
 `;
 
 export const StyledDeviceName = styled.div`
-  margin: 0 0.75em 0 0.5em;
+  margin: 0 1em 0 0.5em;
 `;
 
 export const StyledDeviceIcon = styled(DeviceIcon)`
