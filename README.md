@@ -11,7 +11,7 @@ You can configure backend api url in `src/constants.js`.
 
 #### REST API mock setup
 
-`npx json-server --watch src/backend-mock/restData.json --routes src/backend-mock/routes.json`
+`npx json-server --watch src/backend-mock/restData.json --routes src/backend-mock/routes.json --port 3001`
 
 #### WebSocket API mock setup
 
@@ -21,3 +21,5 @@ You can configure backend api url in `src/constants.js`.
 
 `npm start`
 
+#### View app
+Visit `http://localhost:3000/`
