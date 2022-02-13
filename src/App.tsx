@@ -42,6 +42,7 @@ const App: React.FC = () => {
       <DeviceList
         devices={state.devices}
         onItemSelection={handleItemSelection}
+        loading={state.loading}
       />
       <DeviceDetails
         onClose={() => dispatch({ type: "closedModal" })}

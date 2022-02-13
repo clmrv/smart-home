@@ -12,11 +12,13 @@ export const fetchDeviceDetails = (
 ) => {
   fetch(`${API}/api/v1/devices/${id}`)
     .then((res) => res.json())
-    .then((data: SmartDeviceDetails) => callback(data));
+    .then((data: SmartDeviceDetails) => callback(data))
+    .catch((err) => alert("Server error"));
 };
 
 export const fetchDevices = (callback: (data: SmartDevice[]) => void) => {
   fetch(`${API}/api/v1/devices`)
     .then((res) => res.json())
-    .then((data: SmartDevice[]) => callback(data));
+    .then((data: SmartDevice[]) => callback(data))
+    .catch((err) => alert("Server error"));
 };

@@ -5,6 +5,7 @@ interface State {
   isModalOpen: boolean;
   selectedDevice: SmartDeviceDetails | null;
   devices: SmartDevice[];
+  loading: boolean;
 }
 
 type Actions =
@@ -17,12 +18,13 @@ export const initialState = {
   isModalOpen: false,
   selectedDevice: null,
   devices: [],
+  loading: true,
 };
 
 export const reducer = (state: State, action: Actions) => {
   switch (action.type) {
     case "loadedDevices":
-      return { ...state, devices: action.devices };
+      return { ...state, devices: action.devices, loading: false };
 
     case "refreshedDevice":
       const refreshedDevice = action.device;
