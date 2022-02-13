@@ -1,19 +1,28 @@
 import React from "react";
 import { SmartBulb } from "../../model";
-import { Lightbulb } from "react-bootstrap-icons";
+import { Styled2ColGrid, StyledColorBox, StyledInfoLabel } from "./styled";
 
 interface Props {
   device: SmartBulb;
 }
 
+const status = {
+  on: "ON",
+  off: "OFF",
+};
+
 const BulbDetails: React.FC<Props> = ({ device }) => {
   return (
-    <>
-      <Lightbulb />
-      <div>{device.isTurnedOn}</div>
-      <div>{device.color}</div>
+    <Styled2ColGrid>
+      <StyledInfoLabel>status</StyledInfoLabel>
+      <div>{`${device.isTurnedOn ? status.on : status.off}`}</div>
+
+      <StyledInfoLabel>color</StyledInfoLabel>
+      <StyledColorBox style={{ backgroundColor: device.color }} />
+
+      <StyledInfoLabel>brightness</StyledInfoLabel>
       <div>{device.brightness}</div>
-    </>
+    </Styled2ColGrid>
   );
 };
 

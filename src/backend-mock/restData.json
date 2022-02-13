@@ -54,8 +54,8 @@
       "name": "Bedroom light",
       "connectionState": "connected",
       "isTurnedOn": false,
-      "brightness": 50,
-      "color": "white"
+      "brightness": 0,
+      "color": "rgb(255,10,15)"
     },
     {
       "type": "outlet",
@@ -83,7 +83,7 @@
     {
       "type": "temperatureSensor",
       "id": "6",
-      "name": "Garage thermometer",
+      "name": "Garage thermometer with very long name",
       "connectionState": "disconnected",
       "temperature": 0
     }

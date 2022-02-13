@@ -24,12 +24,15 @@ export const StyledDeviceList = styled.div`
   display: grid;
   grid-auto-flow: row;
   gap: 0.5rem;
+  min-width: 10em;
 
   ${BREAKPOINTS.tablet} {
     gap: 0.75rem;
+    min-width: 16em;
   }
 
   ${BREAKPOINTS.laptop} {
     gap: 1rem;
+    min-width: 20em;
   }
 `;

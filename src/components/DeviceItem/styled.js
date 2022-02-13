@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
-import { BREAKPOINTS, COLORS, SHADOW } from "../../constants";
+import { BREAKPOINTS, COLORS, BOXSHADOW } from "../../constants";
 import ConnectionState from "../ConnectionState";
 import DeviceIcon from "../DeviceIcon";
 
 export const StyledContainer = styled.div`
   background-color: ${COLORS.WHITE};
-  box-shadow: ${SHADOW};
+  box-shadow: ${BOXSHADOW};
   position: relative;
   display: flex;
   flex-direction: row;
@@ -34,9 +34,10 @@ export const StyledConnectionState = styled(ConnectionState)`
 `;
 
 export const StyledDeviceName = styled.div`
-  margin: 0 1em;
+  margin: 0 0.75em 0 0.5em;
 `;
 
 export const StyledDeviceIcon = styled(DeviceIcon)`
-  font-size: 1.25em;
+  min-width: 1.25em;
+  min-height: 1.25em;
 `;

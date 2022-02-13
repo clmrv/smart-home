@@ -2,7 +2,16 @@ import React, { useEffect } from "react";
 import { SmartDeviceDetails } from "../../model";
 import { setupInteract } from "./helpers";
 import DeviceDetailsFactory from "../DeviceDetailsFactory";
-import { StyledCloseButton, StyledModal, StyledWrapper } from "./styled";
+import {
+  StyledCloseButton,
+  StyledModal,
+  StyledContainer,
+  StyledIdText,
+  StyledDeviceName,
+  StyledDeviceIcon,
+  StyledConnectionState,
+  IconsWrapper,
+} from "./styled";
 
 const draggableClass = "deviceDetailsWindow";
 
@@ -18,16 +27,22 @@ const DeviceDetails: React.FC<Props> = ({ open, onClose, device }) => {
   }, []);
 
   return (
-    <StyledWrapper style={{ display: open ? "flex" : "none" }}>
+    <StyledContainer style={{ display: open ? "flex" : "none" }}>
       <StyledModal className={draggableClass}>
-        <div>{device?.id}</div>
-        <div>{device?.name}</div>
-        <div>{device?.type}</div>
-        <div>{device?.connectionState}</div>
         <StyledCloseButton onClick={onClose}>X</StyledCloseButton>
+        <IconsWrapper>
+          {device && (
+            <>
+              <StyledDeviceIcon type={device.type} />
+              <StyledConnectionState state={device.connectionState} />
+            </>
+          )}
+        </IconsWrapper>
+        <StyledIdText>{`ID: ${device?.id}`}</StyledIdText>
+        <StyledDeviceName>{device?.name}</StyledDeviceName>
         {device && <DeviceDetailsFactory device={device} />}
       </StyledModal>
-    </StyledWrapper>
+    </StyledContainer>
   );
 };
 
